@@ -1,0 +1,10 @@
+<h2><%=@question.body%></h2>
+
+<%- unless @question.description.nil? -%>
+<h4>Details: <%=@question.description%></h4>
+<%- end -%>
+
+<p>Created at: <%=@question.created_at%></p>
+<p>Updated at: <%=@question.updated_at%></p>
+
+<%=link_to "GO BACK", "/questions"%>

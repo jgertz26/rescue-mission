@@ -1,0 +1,13 @@
+<h2>Questions!</h2>
+
+<%- if !@questions.empty? -%>
+<ul>
+    <%- @questions.each do |question| -%>
+          <li>
+          <%= link_to question.body,
+            '/questions/' + question.to_param,
+            method: :get %>
+          </li>
+    <%- end -%>
+  </ul>
+<%- end -%>
