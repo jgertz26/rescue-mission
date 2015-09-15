@@ -10,7 +10,7 @@ feature 'view all questions', %Q{
   #   Ordered by most recent
 
   scenario 'user views all questions' do
-    question = Question.create(body: "WUT?")
+    question = Question.create(body: "You know it bro?  But really do you know it?")
 
     visit '/questions'
     expect(page).to have_content(question.body)
@@ -18,7 +18,7 @@ feature 'view all questions', %Q{
 
 end
 
-feature 'view all questions', %Q{
+feature 'view one question', %Q{
   As a user
   I want to view a question's details
   So that I can effectively understand the question
@@ -30,7 +30,7 @@ feature 'view all questions', %Q{
   # - I must see the question's description
 
   scenario 'user views all questions' do
-    question = Question.create(body: "WUT?", description: "cuz")
+    question = Question.create(body: "You know it bro? But really do you know it?", description: ("cuzzzzzz" * 20))
 
     visit '/questions'
     click_link question.body

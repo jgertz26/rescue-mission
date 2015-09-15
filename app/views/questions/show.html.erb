@@ -7,4 +7,24 @@
 <p>Created at: <%=@question.created_at%></p>
 <p>Updated at: <%=@question.updated_at%></p>
 
+<%=link_to "DELETE QUESTION", question_path(@question), method: :delete, data: { confirm: "Are you sure?"}%>
+
+
+<%- unless @answers == [] || @answers.nil? -%>
+  <h4>Answers:</h4>
+  <ol>
+  <%- @answers.each do |answer| -%>
+    <li><%=answer.description%></li>
+  <%- end -%>
+</ol>
+<%- end -%>
+
+<h4>Submit an answer!</h4>
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit "Submit Answer" %>
+<%- end -%>
+<br>
 <%=link_to "GO BACK", "/questions"%>

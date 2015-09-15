@@ -5,9 +5,10 @@
     <%- @questions.each do |question| -%>
           <li>
           <%= link_to question.body,
-            '/questions/' + question.to_param,
-            method: :get %>
+            '/questions/' + question.to_param%>
           </li>
     <%- end -%>
   </ul>
+  <%= link_to "Submit a question",
+    '/questions/new'%>
 <%- end -%>
