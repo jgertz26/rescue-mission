@@ -19,6 +19,7 @@ So that I can receive help from others
     click_button 'Submit Question'
     expect(page).to have_content("Well done")
     expect(page).to have_content(body)
+    expect(page).to have_link("EDIT QUESTION")
   end
 
   scenario 'body is too short' do
@@ -41,4 +42,13 @@ So that I can receive help from others
     expect(page).to have_content("Description is too short (minimum is 150 characters)")
   end
 
+  scenario 'user succesfully submits with empty description' do
+    visit '/questions/new'
+    body = "How long will this go ooooooooooooooooooooooooooooooooooooon?"
+    fill_in 'Body', with: body
+    click_button 'Submit Question'
+    expect(page).to have_content("Well done")
+    expect(page).to have_content(body)
+    expect(page).to have_link("EDIT QUESTION")
+  end
 end

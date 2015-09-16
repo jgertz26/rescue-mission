@@ -3,12 +3,13 @@
 
   <%= form_for @question do |f| %>
     <%= f.label :body %>
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
 
     <%= f.label :description %>
     <%= f.text_area :description %>
 
     <br>
-    <%= f.submit "Submit Question" %>
+    <%= f.submit "Submit Question", class: 'button round' %>
   <%- end -%>
+  <%=link_to "GO BACK", questions_path%>
 </div>

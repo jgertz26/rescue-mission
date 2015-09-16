@@ -1,0 +1,18 @@
+<div class="show-page large-9">
+  <h2>Edit Your Dumbass Question!</h2>
+
+  <%= form_for @question do |f| %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <br>
+    <%= f.submit "Update Question", class: 'button round' %>
+  <%- end -%>
+  <%=link_to "BACK TO QUESTION", question_path%>
+
+</div>
+<%=link_to "DELETE QUESTION", question_path(@question),
+method: :delete, class: 'button alert round float right large-2'%>

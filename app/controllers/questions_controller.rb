@@ -32,6 +32,22 @@ class QuestionsController < ApplicationController
     redirect_to "/questions"
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      flash[:notice] = "Updated!"
+      redirect_to @question
+    else
+      flash[:notice] = @question.errors.full_messages.join(" - ")
+      render action: 'edit'
+    end
+  end
+
   private
 
   def question_params
